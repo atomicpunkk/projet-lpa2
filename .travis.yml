@@ -1,2 +1,2 @@
 language: ruby
-install gem install rails
+install: gem install rails
