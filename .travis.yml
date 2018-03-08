@@ -1,3 +1,8 @@
 language: ruby
 rvm:
 - 2.3.5
+deploy:
+  provider: heroku
+  api_key:
+    secure: eHEfLKaepeNaCg6UkWqvkkqQade5SlRPUbQFyQhltrBSz2lcnCnPOChMErHc4MP7U/lPXkfJA7ane5hpjTs4VJQIzsLh9DI/AJMCM9tzN6C6vTlQ64DPumjLieW3l+Zqxx/M1q0uiBK+9LLkcQfMSzKlmGMYOUOJzdL3NbApkCSODpxK02MYzw97fotnpv18srswUPSl/KVLSXopGcXxT73uP67bWrqhksX8O3KRF7JJ8x176+wT1af+R7e1Mk/8oN9NsNfAJJ1P12MZyeyr4Ilou42mHImswCsFhUXSaKkq4OPELd2/T2lC0YSuQEV5G9KQIkW1FpdQ1/vghQGNQOjZRG5rGkoGuCV+KEGA7f4fLYgfJy7EvvtLMaSPzK+v+VpbQP4Cf/aasDp3cLLSGNyzfx+0g754TSPey4qG4/UzMoMbF9OZlxi2+7KxwGu8nkC1BMmfXvJ/asnTER9nMUbyBHVAVPmi5E+anLkdlGX5tZ7ZcNptoXIz3olMloFQcqFyneGG5sVWSSNNKnW6ghQt5yS1w+oSIeDMWevn20zribGonPWFsa0SJyrWsokz55YHeGb49/w2YevPelC2n//j6y7y2ZNnukIiOm7NzsShj8hclaTqype56XqEZ2BKdNJZzTzRRBBnmRZqTFDwGXo/bYnik2qKwDOWEqCpFp0=
+   app: projet-lc
