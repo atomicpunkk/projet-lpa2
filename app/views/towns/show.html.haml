@@ -1,3 +1,4 @@
+
 %p#notice= notice
 
 %p
@@ -12,7 +13,18 @@
 %p
   %b Long:
   = @town.long
-
+%p 
+  %b Meteo:
+  = @weather.summary
+%p 
+  %b Température:
+  = @weather.temperature 
+%p 
+  %b Humidité:
+  = @weather.humidity 
 = link_to 'Edit', edit_town_path(@town)
 \|
 = link_to 'Back', towns_path
+
+
+
