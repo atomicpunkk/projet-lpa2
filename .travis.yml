@@ -13,7 +13,8 @@ before_script:
 - chmod +x ./cc-test-reporter
 - ./cc-test-reporter before-build
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter format-coverage -t simplecov
+  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
 env:
   global:
     secure: rxE5iiPX0+n/l12AqS80b2D+InqqmwLwbcAlfI+wb6uLkNWUAHn2gcpcMtsW+xhGerjBDa8U0bJhNyESay665/GSGV7Q4fpdrpvOuyFbUyAqIThem0hoyKyO7ZLefHuL11CAWzsrtWp8H0MesSnA13w7h/GVArFObh/IPgns6W/qDv9gqCXPEXC+CJroLekN0ymDtOvqFzqHxhh5wCYMsIMLszT4DYVJgbfqr+HWKZY5gtIQ0iLgh79QXlcE89hefPVxnYFoRthpfOjb/JRnTpAmND0pXTyMK/lrCgu4x/itJQer+x9yniQ+9oELXr4UY4EmvgUim+tg4fCLUKOSjWn766V2EYPcgYzz4Zc+lAYzvDqRTX1JeD++yYzZ4y84d4dJGHvrTOz4Us8ZG7ULGxWtJHdag6bijrAYcSZJVlFGseVa7Of6vnzIs97QW8gnrvNVcNMI5HnAbCTQUUVwxsdFXwZeL9C1A2JI4eOmKr8HShkjt0Yg/voP5qnt1FVl/5yByv+/+1fjrUXDVIhauj95HY5zB6WE1QfN+WSbCG1GzIVzsQIHiF9MejAA3ZvzWD8LCDIj3js5v79ANzZa4sLHZcxr7d+mr41h3lqWaH/uwJA7SBiakQr4WaFX3sbQ9FsU7uPPMnKgnr+HO5i96Z70hphlEnjFBV2b6Is8HF8=
