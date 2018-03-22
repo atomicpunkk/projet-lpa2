@@ -24,7 +24,7 @@ gem 'pg', '~> 0.18.4',  group: :production
 gem 'haml-rails', '~> 1.0'
 
 gem 'jquery-rails'
-
+gem 'simplecov', require: false, group: :test
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
