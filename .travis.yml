@@ -9,12 +9,14 @@ deploy:
   run: rake db:migrate
 before_script:
 - psql -c 'create database db_test;' -U postgres
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
-- ./cc-test-reporter before-build
+- "./cc-test-reporter before-build"
 after_script:
-  - ./cc-test-reporter format-coverage -t simplecov
-  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
+- "./cc-test-reporter format-coverage -t simplecov"
+- if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
 env:
   global:
-    secure: rxE5iiPX0+n/l12AqS80b2D+InqqmwLwbcAlfI+wb6uLkNWUAHn2gcpcMtsW+xhGerjBDa8U0bJhNyESay665/GSGV7Q4fpdrpvOuyFbUyAqIThem0hoyKyO7ZLefHuL11CAWzsrtWp8H0MesSnA13w7h/GVArFObh/IPgns6W/qDv9gqCXPEXC+CJroLekN0ymDtOvqFzqHxhh5wCYMsIMLszT4DYVJgbfqr+HWKZY5gtIQ0iLgh79QXlcE89hefPVxnYFoRthpfOjb/JRnTpAmND0pXTyMK/lrCgu4x/itJQer+x9yniQ+9oELXr4UY4EmvgUim+tg4fCLUKOSjWn766V2EYPcgYzz4Zc+lAYzvDqRTX1JeD++yYzZ4y84d4dJGHvrTOz4Us8ZG7ULGxWtJHdag6bijrAYcSZJVlFGseVa7Of6vnzIs97QW8gnrvNVcNMI5HnAbCTQUUVwxsdFXwZeL9C1A2JI4eOmKr8HShkjt0Yg/voP5qnt1FVl/5yByv+/+1fjrUXDVIhauj95HY5zB6WE1QfN+WSbCG1GzIVzsQIHiF9MejAA3ZvzWD8LCDIj3js5v79ANzZa4sLHZcxr7d+mr41h3lqWaH/uwJA7SBiakQr4WaFX3sbQ9FsU7uPPMnKgnr+HO5i96Z70hphlEnjFBV2b6Is8HF8=
+  - secure: rxE5iiPX0+n/l12AqS80b2D+InqqmwLwbcAlfI+wb6uLkNWUAHn2gcpcMtsW+xhGerjBDa8U0bJhNyESay665/GSGV7Q4fpdrpvOuyFbUyAqIThem0hoyKyO7ZLefHuL11CAWzsrtWp8H0MesSnA13w7h/GVArFObh/IPgns6W/qDv9gqCXPEXC+CJroLekN0ymDtOvqFzqHxhh5wCYMsIMLszT4DYVJgbfqr+HWKZY5gtIQ0iLgh79QXlcE89hefPVxnYFoRthpfOjb/JRnTpAmND0pXTyMK/lrCgu4x/itJQer+x9yniQ+9oELXr4UY4EmvgUim+tg4fCLUKOSjWn766V2EYPcgYzz4Zc+lAYzvDqRTX1JeD++yYzZ4y84d4dJGHvrTOz4Us8ZG7ULGxWtJHdag6bijrAYcSZJVlFGseVa7Of6vnzIs97QW8gnrvNVcNMI5HnAbCTQUUVwxsdFXwZeL9C1A2JI4eOmKr8HShkjt0Yg/voP5qnt1FVl/5yByv+/+1fjrUXDVIhauj95HY5zB6WE1QfN+WSbCG1GzIVzsQIHiF9MejAA3ZvzWD8LCDIj3js5v79ANzZa4sLHZcxr7d+mr41h3lqWaH/uwJA7SBiakQr4WaFX3sbQ9FsU7uPPMnKgnr+HO5i96Z70hphlEnjFBV2b6Is8HF8=
+  - secure: wIr40xv4urbgHWSX7uwIL3WfyG5J4XkpOZ5IMPatiqJyk3FfWVnq5OwgWF2PqgaGcwfy7ykMSJy2cDygi/KWVvj62UpP35upfvbDgfq0DXlrPvUZoG47WLyuZZPy8YSF6Hb4+q3/ioAF9IG01b6rCjtjbdLdEyVH4usN7GqoNHslWO2GOMCNwN6GISkziMO4h8akIbfuEq72aeW+LcEvayDLABCK83lb7mRmedr7iSvgMdAZf6z8f7g/u9cNSohGlEQAYs+5nCSeOEkmtM0aw4bYYYhS7fy/cROQ4W9VO4jgr2m0grLYYMWZdX7t0iaI/VYapIB2Ywvh9Ropb+2UZVtH7Dt2muT7tvj7FusC38s+6h4uKoyIcKIJrMDT0xh7WLYhtdq+aY3QCVctTr/eJ/2ipmiXD3zTB3qtndifajPiP2V4S4dl7sNjULGGOoeIwskzIoDOajU1jcz0dYGFVb8g+SHiEwyPsB7amDsZk+Nab7BUbobG9xoKFbJlEolAWxfmF7v4XI/Ey0mtQ4KAZAWWYg3ohmoPrmG099ACcyo1wOjBXO9yWvRJKD+IJycAu+8bu7KS5lfdsTQwsNm3Gbz+iyNOHpIXvSM/S3ZcCGNxrsFD4WRmUEFLF/Or5DIqxgKErQdEYxxz8oV6nabg33SCwzFjnw3eHS8aURn95/k=
